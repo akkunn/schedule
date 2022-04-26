@@ -1,6 +1,7 @@
 
 <div class="main main_new_edit">
-  <h2>スケジュール新規作成</h2>
+  <h2>スケジュール編集</h2>
+
   <% if flash[:alert] %>
     <p class="index-flash-alert"><%= flash[:alert] %></p>
   <% end %>
@@ -34,7 +35,7 @@
     </table>
     <ul>
       <li>
-        <p><%= f.submit "スケジュールを新規登録する"%></p>
+        <p><%= f.submit "スケジュールの編集を完了する"%></p>
         <p><%= link_to("スケジュール一覧に戻る", "/posts/index") %></p>
       </li>
     </ul>

@@ -1,4 +1,4 @@
-<div class="main">
+<div class="main main-sub">
   <h2>スケジュール詳細</h2>
 
     <table>
@@ -30,8 +30,8 @@
     <ul>
       <li>
         <p><%= link_to("スケジュール一覧に戻る", "/posts/index") %></p>
-        <p><%= link_to("スケジュールを編集する", "/posts/index") %></p>
-        <p><%= link_to("スケジュールを編集する", "/posts/index") %></p>
+        <p><%= link_to("スケジュールを編集する", "/posts/#{@post.id}/edit") %></p>
+        <p><%= link_to("スケジュールを削除", "/posts/index") %></p>
       </li>
     </ul>
 </div>
