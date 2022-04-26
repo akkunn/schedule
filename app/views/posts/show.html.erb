@@ -29,8 +29,8 @@
     </table>
     <ul>
       <li>
-        <p><%= link_to("スケジュール一覧に戻る", "/posts/index") %></p>
-        <p><%= link_to("スケジュールを編集する", "/posts/#{@post.id}/edit") %></p>
+        <p><%= link_to "スケジュール一覧に戻る", posts_path %></p>
+        <p><%= link_to "スケジュールを編集する", edit_post_path(@post) %></p>
         <p><%= link_to("スケジュールを削除", "/posts/index") %></p>
       </li>
     </ul>

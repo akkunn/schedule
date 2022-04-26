@@ -24,8 +24,7 @@ let Day = now.getDate();
 
 nowTime.textContent = `現在の日時:${Year}年${Month}月${Day}日`
 
-// console.log(nowTime);
-// console.log(`${Year}年${Month}月${Day}日`);
+
 
 let row = document.getElementById('rows');
 let rowCount = row.rows.length

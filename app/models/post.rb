@@ -13,19 +13,16 @@ class Post < ApplicationRecord
 
 
   def date_before_start
-    if start < Date.today
+    if start.nil? || start < Date.today || Date.today.nil?
       errors.add(:start, "は今日以降の日付を選択してください")
     end
   end
 
   def date_before_end
-    if finish < start || finish < Date.today
+    if finish.nil? || Date.today.nil? || start.nil? || finish < start || finish < Date.today
       errors.add(:finish, "は開始日以降の日付を選択してください")
     end
   end
-
-
-
 
 end
 

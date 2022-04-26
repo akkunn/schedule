@@ -8,12 +8,12 @@ class PostsController < ApplicationController
   end
 
   def create 
-    @post = Post.new(params.require(:post).permit(:title, :start, :finish, :all_day, :memo))
+    @post = Post.new(post_params)
     if @post.save
-      redirect_to("/posts/index")
+      redirect_to posts_path
       flash[:notice] = "スケジュールを登録しました"
     else
-      render("posts/new")
+      render "new"
       flash[:alert] = "スケジュールを登録できませんでした"
     end
   end
@@ -28,12 +28,11 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(params.require(:post).permit(:title, :start, :finish, :all_day, :memo))
-    if @post.save
-      redirect_to("/posts/index")
+    if @post.update(post_params)
+      redirect_to posts_path
       flash[:notice] = "スケジュールを更新しました"
     else
-      render("posts/edit")
+      render "edit"
       flash[:alert] = "スケジュールを更新できませんでした"
     end
   end
@@ -42,8 +41,13 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     flash[:alert] = "スケジュールを削除しました"
-    redirect_to("/posts/index")
+    redirect_to posts_path
   end
 
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :start, :finish, :all_day, :memo)
+  end
 
 end
